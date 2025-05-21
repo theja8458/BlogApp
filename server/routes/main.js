@@ -4,7 +4,6 @@ const Post = require("../models/Post.js")
 // const  mongoose = require("mongoose") 
 
 
-
 router.get("",async(req,res)=>{
      try{
       const locals = {
@@ -28,20 +27,24 @@ router.get("",async(req,res)=>{
      }
   });
 
+  
+
+  router.get("/post/:id",async(req,res)=>{
+     try{ 
 
 
-  // router.get("",async(req,res)=>{
-  //   const locals = {
-  //       title : "Nodejs Blog",
-  //       description : "Simple blog created with mongo,express and node"
-  //   }
-  //    try{
-  //     const data = await Post.find();
-  //     res.render('index',{locals,data})
-  //    }catch(err){
-  //     console.log(err);
-  //    }
-  // });
+    let slug = req.params.id;
+
+      const data = await Post.findById(slug);
+      const locals = {
+        title : data.title,
+        description : "Simple blog created with mongo,express and node"
+    }
+      res.render('post',{locals,data})
+     }catch(err){
+      console.log(err);
+     }
+  });
 
 
 
@@ -78,7 +81,6 @@ router.get("",async(req,res)=>{
 
 // 
 
-// insertPostData();
 
 // function insertPostData() {
 //    Post.insertMany([
@@ -123,7 +125,10 @@ router.get("",async(req,res)=>{
 //       body: "Learn Morgan."
 //     },
 //    ])
-// }
+// };
+
+// insertPostData();
+
 
 
 module.exports = router;
