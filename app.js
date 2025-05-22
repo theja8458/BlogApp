@@ -9,6 +9,8 @@ const port = 8080 || process.env.port;
 //conncet database
 connectDB();
 
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 app.use(express.static("public"));
 //template engine
 app.use(expressLayout);
