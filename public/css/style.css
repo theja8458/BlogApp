@@ -304,13 +304,16 @@ justify-content: center;
 
 .admin-post-controls form{
     display: inline-block;
-    background-color: var(--black);
-    color: var(--gray-light);
-    border: 0;
-    text-decoration: none;
-    font-size: 8rem;
-    padding: 4px 8px;
-    line-height: 2;
+}
+.admin-post-controls .btn  {
+  display: inline-block;
+  background-color: var(--black);
+  color: var(--gray-light);
+  border: 0;
+  text-decoration: none;
+  font-size: .8rem;
+  padding: 4px 8px;
+  line-height: 2;
 }
 
 .admin-post li{
