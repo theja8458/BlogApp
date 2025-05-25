@@ -21,7 +21,7 @@ router.get("",async(req,res)=>{
        const nextPage = parseInt(page)+1;
        const hasNextPage = nextPage <= Math.ceil(count/perPage);
 
-      res.render('index',{locals,data , current:page, nextPage:hasNextPage? nextPage : null});
+      res.render('index',{locals,data , current:page, nextPage:hasNextPage? nextPage : null , curRoute:"/"});
      }catch(err){
       console.log(err);
      }
@@ -40,7 +40,7 @@ router.get("",async(req,res)=>{
         title : data.title,
         description : "Simple blog created with mongo,express and node"
     }
-      res.render('post',{locals,data})
+      res.render('post',{locals,data,curRoute:"/"});
      }catch(err){
       console.log(err);
      }
@@ -61,7 +61,7 @@ router.get("",async(req,res)=>{
           {body : {$regex: new RegExp(searchNoSpecialChar,'i')}}
         ]}
       );
-      res.render("search",{data,locals});
+      res.render("search",{data,locals,curRoute:"/"});
 
      }catch(err){
       console.log(err);
@@ -75,7 +75,11 @@ router.get("",async(req,res)=>{
 
 
 
-
+router.get('/about', (req, res) => {
+  res.render('about', {
+    curRoute: '/about'
+  });
+});
 
 
 

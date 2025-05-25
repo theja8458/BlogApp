@@ -113,6 +113,38 @@ router.post("/add-post",authMiddleware,async (req,res)=>{
 });
 
 
+router.get("/edit-post/:id",authMiddleware,async (req,res)=>{
+
+  try{
+    const locals = {
+        title:"Edit Post",
+        description: "Simple blog created with NodeJs, Express and MongoDB"
+    }
+   
+   const data = await Post.findOne({_id:req.params.id});
+   res.render("admin/edit-post",{data,locals,
+    layout:adminLayout
+   }) 
+   
+  }catch(err){
+   console.log(err);
+  } 
+});
+
+
+router.put("/edit-post/:id",authMiddleware,async (req,res)=>{
+
+  try{
+   await Post.findByIdAndUpdate(req.params.id, {
+     title: req.body.title,
+     body: req.body.body,
+     updatedAt: Date.now()
+   });  
+   res.redirect(`/edit-post/${req.params.id}`);
+  }catch(err){
+   console.log(err);
+  } 
+});
 
 
 
@@ -148,6 +180,24 @@ router.post("/register",async (req,res)=>{
    }
 });
 
+
+
+router.delete("/delete-post/:id",authMiddleware,async (req,res)=>{
+  
+  try{
+    await Post.findByIdAndDelete({_id:req.params.id});
+    res.redirect("/dashboard");
+  }catch(err){
+    console.log(err);
+}
+});
+
+
+router.get("/logout",(req,res)=>{
+  res.clearCookie("token");
+  // res.json({message: "Logout Successfull"});
+  res.redirect("/");
+});
 
 
 
