@@ -2,6 +2,8 @@
 
 A simple blog website built with Node.js, Express, and MongoDB where users can read blog posts and admin can manage posts.
 
+**Live Demo:** https://nodewrite-cwko.onrender.com
+
 ## Technologies Used
 
 - **Node.js** - Backend runtime
@@ -22,7 +24,43 @@ A simple blog website built with Node.js, Express, and MongoDB where users can r
 - Admin can add, edit, delete posts
 - Responsive design
 
-## How to Run
+## For Users
+
+**What users can do:**
+- Browse all blog posts on the home page
+- Click on any post title to read the full article
+- Use the search bar to find specific posts by title or content
+- Navigate through multiple pages of posts
+- View the about page
+
+**How to use:**
+1. Visit the website
+2. Browse posts on the main page
+3. Click "Search" button to search for specific topics
+4. Click on any post title to read the complete article
+5. Use pagination to see older posts
+
+## For Admin
+
+**What admin can do:**
+- Login to secure admin panel
+- View all posts in dashboard
+- Create new blog posts
+- Edit existing posts
+- Delete posts
+- Logout securely
+
+**How to use admin panel:**
+1. Go to `/admin` page
+2. Register a new admin account (first time)
+3. Login with username and password
+4. Access dashboard to manage all posts
+5. Click "Add New" to create posts
+6. Click "Edit" to modify existing posts
+7. Click "Delete" to remove posts
+8. Click "Logout" when finished
+
+## How to Run Locally
 
 1. Clone this repository
 2. Install dependencies:
@@ -80,13 +118,6 @@ blogapp/
 └── package.json
 ```
 
-## Admin Access
-
-1. Go to `/admin`
-2. Register a new admin account
-3. Login with your credentials
-4. You can now add, edit, and delete blog posts
-
 ## What I Learned
 
 - Building REST APIs with Express.js
@@ -95,3 +126,4 @@ blogapp/
 - Template rendering with EJS
 - File structure organization
 - Responsive web design
+- Deployment on cloud platforms
