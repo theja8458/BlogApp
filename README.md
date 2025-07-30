@@ -126,4 +126,4 @@ blogapp/
 - Template rendering with EJS
 - File structure organization
 - Responsive web design
-- Deployment on cloud platforms
+- Deployment on cloud platforms...
